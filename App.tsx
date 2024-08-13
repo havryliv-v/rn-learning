@@ -1,65 +1,79 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  TextComponent,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
 
-import SvgExample from './src/Svg/Svg';
-import Mask from './src/Mask/Mask';
+import {ScrollViewExample} from './src/ui-and-interaction/scrollView'; // Adjust the path as necessary
+import {Home} from './src/homeScreen';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {ImageComponent} from './src/ui-and-interaction/imageComponent/ImageComponent';
+import {AnimatedComponent} from './src/ui-and-interaction/animation/animatedComponent';
+import {DynamicTracking} from './src/ui-and-interaction/animation/dynamicTracking';
+import {HorizontalScrollExample} from './src/ui-and-interaction/animation/gestureTracking';
+import {LayoutAnimationComponent} from './src/ui-and-interaction/animation/layoutAnimation';
+import {AnimationRouter} from './src/ui-and-interaction/animation/animationRouter';
+import {ResponderDemo} from './src/ui-and-interaction/animation/responderDemo';
+import {UIAndInteractions} from './src/ui-and-interaction/UIAndInteractions';
+import {Connectivity} from './src/connectivity/Connectivity';
 
-function App(): React.JSX.Element {
+const Stack = createNativeStackNavigator();
+
+const App = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.TextComponent}>
-        <Text style={styles.text}>
-          Humans (Homo sapiens) or modern humans are the most common and
-          widespread species of primate, and the last surviving species of the
-          genus Homo. They are great apes characterized by their hairlessness,
-          bipedalism, and high intelligence. Humans have large brains, enabling
-          more advanced cognitive skills that enable them to thrive and adapt in
-          varied environments, develop highly complex tools, and form complex
-          social structures and civilizations. Humans are highly social, with
-          individual humans tending to belong to a multi-layered network of
-          cooperating, distinct, or even competing social groups – from families
-          and peer groups to corporations and political states. As such, social
-          interactions between humans have established a wide variety of values,
-          social norms, languages, and traditions (collectively termed
-          institutions), each of which bolsters human society.
-        </Text>
-        <Mask />
-      </View>
-      <View style={styles.test}>
-        <SvgExample />
-      </View>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{title: 'Welcome'}}
+        />
+        <Stack.Screen
+          name="UIAndInteractions"
+          component={UIAndInteractions}
+          options={{title: 'UI & Interactions'}}
+        />
+        <Stack.Screen name="Connectivity" component={Connectivity} />
+        <Stack.Screen
+          name="ScrollViewExample"
+          component={ScrollViewExample}
+          options={{title: 'Scroll View'}}
+        />
+        <Stack.Screen
+          name="ImageComponent"
+          component={ImageComponent}
+          options={{title: 'Image'}}
+        />
+        <Stack.Screen
+          name="AnimationRouter"
+          component={AnimationRouter}
+          options={{title: 'Animation Router'}}
+        />
+        <Stack.Screen
+          name="AnimatedComponent"
+          component={AnimatedComponent}
+          options={{title: 'Animated Component'}}
+        />
+        <Stack.Screen
+          name="DynamicTrackingExample"
+          component={DynamicTracking}
+          options={{title: 'Tracking values'}}
+        />
+        <Stack.Screen
+          name="HorizontalScrollExample"
+          component={HorizontalScrollExample}
+          options={{title: 'Tracking gestures'}}
+        />
+        <Stack.Screen
+          name="LayoutAnimationComponent"
+          component={LayoutAnimationComponent}
+          options={{title: 'Layout animation'}}
+        />
+        <Stack.Screen
+          name="ResponderDemo"
+          component={ResponderDemo}
+          options={{title: 'Responder Demo'}}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    margin: 10,
-    color: 'black',
-  },
-  TextComponent: {
-    flex: 1,
-  },
-  text: {
-    fontFamily: 'Apache',
-    fontSize: 20,
-  },
-  test: {
-    height: 100,
-    marginBottom: 50,
-  },
-});
+};
 
 export default App;

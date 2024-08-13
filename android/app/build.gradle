@@ -1,4 +1,9 @@
+project.ext.envConfigFiles = [
+  release: ".env.production",
+  dev: ".env.development",
+];
 apply plugin: "com.android.application"
+apply from: project(":react-native-config").projectDir.getPath() + "/dotenv.gradle"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
 
@@ -81,6 +86,8 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+          resValue "string", "build_config_package", "com.worktestapp"
+
     }
     signingConfigs {
         debug {
