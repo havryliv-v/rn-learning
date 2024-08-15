@@ -1,28 +1,27 @@
-//@ts-nocheck
-
-import React, {useState, useCallback} from 'react';
-import {View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
-import {initialLetters} from './dataOne.js';
-import {LetterOne} from './LetterOne.tsx';
+import React, {useState, useCallback} from 'react'
+import {initialLetters} from './dataOne.js'
+import {LetterOne} from './LetterOne.tsx'
+import {View, Text, FlatList, StyleSheet} from 'react-native'
+import {Letter} from '../Types.ts'
 
 export const MailOne = () => {
-  const [letters, setLetters] = useState(initialLetters);
-  const [highlightedId, setHighlightedId] = useState(null);
-  const handleHover = useCallback(letter => {
-    setHighlightedId(letter.id);
-  }, []);
+  const [letters, setLetters] = useState<Letter[]>(initialLetters)
+  const [highlightedId, setHighlightedId] = useState<number | null>(null)
+  const handleHover = useCallback((letter: Letter) => {
+    setHighlightedId(letter.id)
+  }, [])
 
-  const handleStar = useCallback(starred => {
-    setLetters(prevLetters =>
-      prevLetters.map(letter =>
+  const handleStar = useCallback((starred: Letter) => {
+    setLetters((prevLetters) =>
+      prevLetters.map((letter) =>
         letter.id === starred.id
           ? {...letter, isStarred: !letter.isStarred}
-          : letter,
-      ),
-    );
-  }, []);
+          : letter
+      )
+    )
+  }, [])
 
-  const renderItem = ({item}) => {
+  const renderItem = ({item}: {item: Letter}) => {
     return (
       <LetterOne
         letter={item}
@@ -30,8 +29,8 @@ export const MailOne = () => {
         onHover={handleHover}
         onToggleStar={handleStar}
       />
-    );
-  };
+    )
+  }
 
   return (
     <View style={styles.container}>
@@ -39,11 +38,11 @@ export const MailOne = () => {
       <FlatList
         data={letters}
         renderItem={renderItem}
-        keyExtractor={item => item.id.toString()}
+        keyExtractor={(item) => item.id.toString()}
       />
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -55,4 +54,4 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 16,
   },
-});
+})

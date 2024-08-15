@@ -1,8 +1,12 @@
-//@ts-nocheck
-import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-
-export const LetterTwo = ({letter, onToggle, isSelected}) => {
+import React from 'react'
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native'
+import {Letter} from '../Types'
+interface Props {
+  letter: Letter
+  onToggle: (id: number) => void
+  isSelected: boolean
+}
+export const LetterTwo: React.FC<Props> = ({letter, onToggle, isSelected}) => {
   return (
     <TouchableOpacity
       style={[styles.container, isSelected && styles.selected]}
@@ -12,8 +16,8 @@ export const LetterTwo = ({letter, onToggle, isSelected}) => {
         <Text style={styles.text}>{letter.subject}</Text>
       </View>
     </TouchableOpacity>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -42,4 +46,4 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
   },
-});
+})

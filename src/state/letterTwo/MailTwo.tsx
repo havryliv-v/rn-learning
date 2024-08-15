@@ -1,22 +1,17 @@
 import {letters} from './dataTwo.js'
 
-import React, {useState, useCallback} from 'react'
-import {View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native'
+import React, {useState} from 'react'
+import {View, Text, FlatList, StyleSheet} from 'react-native'
 import {LetterTwo} from './LetterTwo.tsx'
-
-interface Letter {
-  id: string
-  subject: string
-  isStarred: boolean
-}
+import {Letter} from '../Types.ts'
 
 export const MailTwo = () => {
-  const [selectedIds, setSelectedIds] = useState<string[]>([])
+  const [selectedIds, setSelectedIds] = useState<number[]>([])
 
   const selectedCount = selectedIds.length
 
-  const handleToggle = (toggledId: string) => {
-    setSelectedIds((prevSelectedIds: string[]) => {
+  const handleToggle = (toggledId: number) => {
+    setSelectedIds((prevSelectedIds: number[]) => {
       if (prevSelectedIds.includes(toggledId)) {
         return prevSelectedIds.filter((id) => id !== toggledId)
       } else {
@@ -38,7 +33,7 @@ export const MailTwo = () => {
     <View style={styles.container}>
       <Text style={styles.header}>Inbox</Text>
       <FlatList
-        data={letters.map((letter) => ({...letter, id: letter.id.toString()}))}
+        data={letters}
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
       />

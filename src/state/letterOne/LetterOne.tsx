@@ -1,15 +1,23 @@
-//@ts-nocheck
-
-import React, {memo} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-
-export const LetterOne = ({letter, isHighlighted, onHover, onToggleStar}) => {
-  console.log(isHighlighted);
+import React from 'react'
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native'
+import {Letter} from '../Types'
+interface Props {
+  letter: Letter
+  isHighlighted: boolean
+  onHover: (letter: Letter) => void
+  onToggleStar: (letter: Letter) => void
+}
+export const LetterOne: React.FC<Props> = ({
+  letter,
+  isHighlighted,
+  onHover,
+  onToggleStar,
+}) => {
+  console.log(isHighlighted)
   return (
     <TouchableOpacity
       style={[styles.item, isHighlighted && styles.highlighted]}
-      onPress={() => onHover(letter)} // React Native doesn't have `onMouseEnter`, so use `onPress`
-    >
+      onPress={() => onHover(letter)}>
       <View style={styles.container}>
         <TouchableOpacity
           onPress={() => onToggleStar(letter)}
@@ -21,8 +29,8 @@ export const LetterOne = ({letter, isHighlighted, onHover, onToggleStar}) => {
         <Text>{letter.subject}</Text>
       </View>
     </TouchableOpacity>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   item: {
@@ -46,4 +54,4 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#333',
   },
-});
+})

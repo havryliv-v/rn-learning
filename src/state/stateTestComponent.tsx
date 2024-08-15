@@ -1,19 +1,18 @@
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {useNavigation, ParamListBase} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack'
+import {useNavigation, ParamListBase} from '@react-navigation/native'
 
-import React from 'react';
+import React from 'react'
 import {
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
-} from 'react-native';
+} from 'react-native'
 export const StateTestComponent = () => {
-  const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
+  const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>()
 
   return (
-    // eslint-disable-next-line react-native/no-inline-styles
     <ScrollView style={{flex: 1}}>
       <View style={[styles.container]}>
         <TouchableOpacity
@@ -28,8 +27,8 @@ export const StateTestComponent = () => {
         </TouchableOpacity>
       </View>
     </ScrollView>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -51,4 +50,4 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
-});
+})
