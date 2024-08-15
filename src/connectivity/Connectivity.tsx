@@ -1,16 +1,16 @@
-import {useNavigation, ParamListBase} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {useNavigation, ParamListBase} from '@react-navigation/native'
+import {NativeStackNavigationProp} from '@react-navigation/native-stack'
 
-import React from 'react';
+import React from 'react'
 import {
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
-} from 'react-native';
+} from 'react-native'
 export const Connectivity = () => {
-  const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
+  const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>()
 
   return (
     // eslint-disable-next-line react-native/no-inline-styles
@@ -18,18 +18,18 @@ export const Connectivity = () => {
       <View style={[styles.container]}>
         <TouchableOpacity
           style={[styles.button]}
-          onPress={() => navigation.navigate('UIAndInteractions')}>
-          <Text style={[styles.text]}>UI & Interactions</Text>
+          onPress={() => navigation.navigate('NetworkingExample')}>
+          <Text style={[styles.text]}>Networking Example</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.button]}
-          onPress={() => navigation.navigate('Connectivity')}>
-          <Text style={[styles.text]}>Connectivity</Text>
+          onPress={() => navigation.navigate('WebSocketExample')}>
+          <Text style={[styles.text]}>Websocket Example</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -45,10 +45,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '80%',
-    backgroundColor: 'deepskyblue',
+    backgroundColor: 'tomato',
   },
   text: {
     fontSize: 20,
     fontWeight: 'bold',
   },
-});
+})

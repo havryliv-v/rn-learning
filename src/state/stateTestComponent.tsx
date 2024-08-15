@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-export const Home = () => {
+export const StateTestComponent = () => {
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
 
   return (
@@ -18,18 +18,13 @@ export const Home = () => {
       <View style={[styles.container]}>
         <TouchableOpacity
           style={[styles.button]}
-          onPress={() => navigation.navigate('UIAndInteractions')}>
-          <Text style={[styles.text]}>UI & Interactions</Text>
+          onPress={() => navigation.navigate('MailOne')}>
+          <Text style={[styles.text]}>Mail One State</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.button]}
-          onPress={() => navigation.navigate('Connectivity')}>
-          <Text style={[styles.text]}>Connectivity</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.button]}
-          onPress={() => navigation.navigate('State')}>
-          <Text style={[styles.text]}>State</Text>
+          onPress={() => navigation.navigate('MailTwo')}>
+          <Text style={[styles.text]}>Mail Two State</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
@@ -50,7 +45,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '80%',
-    backgroundColor: 'deepskyblue',
+    backgroundColor: 'tomato',
   },
   text: {
     fontSize: 20,

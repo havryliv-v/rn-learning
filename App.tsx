@@ -13,6 +13,11 @@ import {AnimationRouter} from './src/ui-and-interaction/animation/animationRoute
 import {ResponderDemo} from './src/ui-and-interaction/animation/responderDemo';
 import {UIAndInteractions} from './src/ui-and-interaction/UIAndInteractions';
 import {Connectivity} from './src/connectivity/Connectivity';
+import {NetworkingExample} from './src/connectivity/fetchComponent';
+import {WebSocketExample} from './src/connectivity/webSocketComponent';
+import {StateTestComponent} from './src/state/stateTestComponent';
+import {MailOne} from './src/state/letterOne/MailOne';
+import {MailTwo} from './src/state/letterTwo/MailTwo';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,7 +35,6 @@ const App = () => {
           component={UIAndInteractions}
           options={{title: 'UI & Interactions'}}
         />
-        <Stack.Screen name="Connectivity" component={Connectivity} />
         <Stack.Screen
           name="ScrollViewExample"
           component={ScrollViewExample}
@@ -70,6 +74,28 @@ const App = () => {
           name="ResponderDemo"
           component={ResponderDemo}
           options={{title: 'Responder Demo'}}
+        />
+        <Stack.Screen name="Connectivity" component={Connectivity} />
+        <Stack.Screen
+          name="NetworkingExample"
+          component={NetworkingExample}
+          options={{title: 'Networking example'}}
+        />
+        <Stack.Screen
+          name="WebSocketExample"
+          component={WebSocketExample}
+          options={{title: 'WebSocket example'}}
+        />
+        <Stack.Screen name="State" component={StateTestComponent} />
+        <Stack.Screen
+          name="MailOne"
+          component={MailOne}
+          options={{title: 'Mail One State example'}}
+        />
+        <Stack.Screen
+          name="MailTwo"
+          component={MailTwo}
+          options={{title: 'Mail Two State example'}}
         />
       </Stack.Navigator>
     </NavigationContainer>
